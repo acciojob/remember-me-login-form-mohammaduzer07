@@ -22,6 +22,15 @@ form.addEventListener('submit', (event) => {
 	form.reset(); 
 });
 
+function login_Saved() {
+	let user = localStorage.getItem("username");
+	let pass = localStorage.getItem("password");
+
+	 if (user && pass) {
+	    alert(`Logged in as ${user}`);
+	    form.reset();
+	  }
+}
 function showButton() {
 
 	let user = localStorage.getItem("username");
@@ -32,15 +41,6 @@ function showButton() {
 	else {
 		existBtn.style.display = "none";
 	}
-}
-function login_Saved() {
-	let user = localStorage.getItem("username");
-	let pass = localStorage.getItem("password");
-
-	 if (user && pass) {
-	    alert(`Logged in as ${user}`);
-	    form.reset();
-	  }
 }
 existBtn.style.display = "none";
 existBtn.addEventListener('click', login_Saved);
