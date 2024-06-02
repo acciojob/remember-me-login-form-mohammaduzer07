@@ -1,14 +1,17 @@
 //your JS code here. If required.
-let username = document.getElementById('username').value;
-let password = document.getElementById('password').value;
+let userName = document.getElementById('username');
+let passWord = document.getElementById('password');
 let btn = document.getElementById('submit');
-let checkbox = document.getElementById('checkbox');
+let checkBox = document.getElementById('checkbox');
 let existBtn = document.getElementById('existing');
 let form = document.querySelector("form");
 
 form.addEventListener('submit', (event) => {
 	event.preventDefault();
-	if(checkbox.checked){
+	const username = userName.value;
+	const password = passWord.value;
+	const checkbox = checkBox.checked;
+	if(checkbox){
 		localStorage.setItem("username", username);
 		localStorage.setItem("password", password);
 	}else{
@@ -23,19 +26,19 @@ form.addEventListener('submit', (event) => {
 });
 
 function login_Saved() {
-	let user = localStorage.getItem("username");
-	let pass = localStorage.getItem("password");
+	let username = localStorage.getItem("username");
+	let password = localStorage.getItem("password");
 
-	 if (user && pass) {
-	    alert(`Logged in as ${user}`);
+	 if (username && password) {
+	    alert(`Logged in as ${username}`);
 	    form.reset();
 	  }
 }
 function showButton() {
 
-	let user = localStorage.getItem("username");
-	let pass = localStorage.getItem("password");
-	if(user && pass){
+	let username = localStorage.getItem("username");
+	let password = localStorage.getItem("password");
+	if(username && password){
 		existBtn.style.display = "block";
 	}
 	else {
